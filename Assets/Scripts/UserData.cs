@@ -5,6 +5,6 @@ public class UserData
 {
     public string UserName = "Player";
 
-    public long HighScore;
+    public long Score;
 }
 

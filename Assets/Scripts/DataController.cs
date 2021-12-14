@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -34,20 +35,26 @@ public class DataController : MonoBehaviour
       CurrentUser.UserName = name;
     }
   }
+  public string SerializeHighScores(long score)
+  {
+    CurrentUser.Score = score;
+    if ( AllScores.TopEntry.Score < CurrentUser.Score )
+    {
+      AllScores.TopEntry = CurrentUser;
+      AllScores.SavedScores.Add( CurrentUser );
+      var properScoreList = new List<UserData>();
+      for ( int i = 0; i < 10 && i < AllScores.SavedScores.Count; i++ )
+      {
+        properScoreList.Add( AllScores.SavedScores[i] );
+      }
+      AllScores.SavedScores = properScoreList;
+    }
+    return JsonUtility.ToJson( AllScores );
+  }
 
   public void SaveScores(long score)
   {
-    CurrentUser.HighScore = score;
-    if ( AllScores.TopEntry.HighScore < CurrentUser.HighScore )
-    {
-      AllScores.TopEntry = CurrentUser;
-    }
-    else
-    {
-      AllScores.SavedScores.Add( CurrentUser );
-      AllScores.SavedScores = AllScores.SavedScores.GetRange( 0, 10 );
-    }
-    var serializedData = JsonUtility.ToJson( AllScores );
+    string serializedData = SerializeHighScores( score );
     File.WriteAllText( Application.persistentDataPath + "/highScores.json", serializedData );
   }
 
@@ -68,7 +75,7 @@ public class DataController : MonoBehaviour
     return AllScores;
   }
 
-  public string GetCurrentUserName()
+  public string GetPlayerName()
   {
     return CurrentUser.UserName;
   }
@@ -79,6 +86,10 @@ public class DataController : MonoBehaviour
     {
       var data = File.ReadAllText( Application.persistentDataPath + "/highScores.json" );
       AllScores = JsonUtility.FromJson<SavedHighScores>( data );
+    }
+    else
+    {
+      AllScores = new SavedHighScores();
     }
   }
 }
