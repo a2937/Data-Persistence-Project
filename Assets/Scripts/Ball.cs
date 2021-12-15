@@ -4,15 +4,23 @@ public class Ball : MonoBehaviour
 {
   private Rigidbody Rigidbody;
 
+  private AudioSource BounceSoundEffect;
+
   public void Start()
   {
     Rigidbody = GetComponent<Rigidbody>();
+    BounceSoundEffect = GetComponent<AudioSource>();
   }
 
   public void OnCollisionExit(Collision other)
   {
-    var velocity = Rigidbody.velocity;
+    if ( other.gameObject.GetComponent<Brick>() == null )
+    {
+      // If it's a brick; the bounce sound will override the break sound.
+      BounceSoundEffect.Play();
+    }
 
+    var velocity = Rigidbody.velocity;
     //after a collision we accelerate a bit
     velocity += velocity.normalized * 0.01f;
 
@@ -29,5 +37,19 @@ public class Ball : MonoBehaviour
     }
 
     Rigidbody.velocity = velocity;
+  }
+
+  public void Reset()
+  {
+    if ( GetComponent<Rigidbody>() == null )
+    {
+      gameObject.AddComponent<Rigidbody>();
+    }
+    if ( GetComponent<AudioSource>() == null )
+    {
+      AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+      audioSource.playOnAwake = false;
+      audioSource.loop = false;
+    }
   }
 }
