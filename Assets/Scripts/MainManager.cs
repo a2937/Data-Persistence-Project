@@ -68,6 +68,10 @@ public class MainManager : MonoBehaviour
       {
         SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex );
       }
+      else if ( Input.GetButtonDown( "Cancel" ) )
+      {
+        SceneManager.LoadScene( "scoreMenu" );
+      }
     }
   }
 

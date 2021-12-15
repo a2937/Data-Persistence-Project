@@ -1194,12 +1194,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 2137539498}
     m_Modifications:
     - target: {fileID: 917249095128202134, guid: 845c7b421b80b0340a470f18fd17a1c3, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 7db433a0d061df14d99c966f47c49b90, type: 2}
+      propertyPath: m_text
+      value: 'GAME OVER
+
+        Press Space to Restart
+
+        Hit Escape to see
+        top scores'
+      objectReference: {fileID: 0}
     - target: {fileID: 917249095128202134, guid: 845c7b421b80b0340a470f18fd17a1c3, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 917249095128202135, guid: 845c7b421b80b0340a470f18fd17a1c3, type: 3}
       propertyPath: m_Pivot.x
@@ -1231,11 +1236,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 917249095128202135, guid: 845c7b421b80b0340a470f18fd17a1c3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 917249095128202135, guid: 845c7b421b80b0340a470f18fd17a1c3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 917249095128202135, guid: 845c7b421b80b0340a470f18fd17a1c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1271,7 +1276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 917249095128202135, guid: 845c7b421b80b0340a470f18fd17a1c3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 917249095128202135, guid: 845c7b421b80b0340a470f18fd17a1c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1288,6 +1293,10 @@ PrefabInstance:
     - target: {fileID: 917249095128202152, guid: 845c7b421b80b0340a470f18fd17a1c3, type: 3}
       propertyPath: m_Name
       value: Gameover Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 917249095128202152, guid: 845c7b421b80b0340a470f18fd17a1c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 845c7b421b80b0340a470f18fd17a1c3, type: 3}
