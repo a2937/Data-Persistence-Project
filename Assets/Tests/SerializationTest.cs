@@ -5,11 +5,10 @@ using UnityEngine.TestTools;
 
 public class SerializationTest
 {
-  // A Test behaves as an ordinary method
   [UnityTest]
   public IEnumerator ShouldRetainTenOrLessScoresOnly()
   {
-    DataController dataController = UnityEngine.Object.Instantiate( Resources.Load<DataController>( "Prefabs/DataController" ) );
+    DataController dataController = Object.Instantiate( Resources.Load<DataController>( "Prefabs/DataController" ) );
     dataController.Awake();
     yield return new WaitForFixedUpdate();
     dataController.SetPlayerName( "Player" );
@@ -34,7 +33,7 @@ public class SerializationTest
   [UnityTest]
   public IEnumerator PlayerNameShouldBeValidAtStart()
   {
-    DataController dataController = UnityEngine.Object.Instantiate( Resources.Load<DataController>( "Prefabs/DataController" ) );
+    DataController dataController = Object.Instantiate( Resources.Load<DataController>( "Prefabs/DataController" ) );
     dataController.Awake();
     yield return new WaitForFixedUpdate();
     Assert.IsFalse( string.IsNullOrWhiteSpace( dataController.GetPlayerName() ) );
@@ -45,7 +44,7 @@ public class SerializationTest
   [UnityTest]
   public IEnumerator PlayerNameShouldBeValidAfterEmptyRename()
   {
-    DataController dataController = UnityEngine.Object.Instantiate( Resources.Load<DataController>( "Prefabs/DataController" ) );
+    DataController dataController = Object.Instantiate( Resources.Load<DataController>( "Prefabs/DataController" ) );
     dataController.Awake();
     yield return new WaitForFixedUpdate();
     dataController.SetPlayerName( "" );
@@ -58,10 +57,23 @@ public class SerializationTest
   [UnityTest]
   public IEnumerator PlayerNameShouldMatchNewName()
   {
-    DataController dataController = UnityEngine.Object.Instantiate( Resources.Load<DataController>( "Prefabs/DataController" ) );
+    DataController dataController = Object.Instantiate( Resources.Load<DataController>( "Prefabs/DataController" ) );
     dataController.Awake();
     yield return new WaitForFixedUpdate();
     dataController.SetPlayerName( "Jane Doe" );
+    yield return new WaitForFixedUpdate();
+    Assert.IsTrue( dataController.GetPlayerName().Equals( "Jane Doe" ) );
+    Object.Destroy( dataController.gameObject );
+    yield return new WaitForFixedUpdate();
+  }
+
+  [UnityTest]
+  public IEnumerator PlayerNameShouldBeTrimmed()
+  {
+    DataController dataController = Object.Instantiate( Resources.Load<DataController>( "Prefabs/DataController" ) );
+    dataController.Awake();
+    yield return new WaitForFixedUpdate();
+    dataController.SetPlayerName( " Jane Doe " );
     yield return new WaitForFixedUpdate();
     Assert.IsTrue( dataController.GetPlayerName().Equals( "Jane Doe" ) );
     Object.Destroy( dataController.gameObject );

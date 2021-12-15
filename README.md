@@ -7,7 +7,7 @@ score by breaking the blocks. When all the bricks are gone; the game ends.
 
 ## Getting Started
 
-Clone the Github repo using ssh and open up the project in Unity
+Clone the Github repo using ssh and open up the project in Unity. 
 
 ### Prerequisites
 
@@ -23,17 +23,41 @@ What things you need to install the software and how to install them
 
 Download these and the run the installers. 
 
-## Running the tests (W.I.P)
+## Running the tests 
 
-Explain how to run the automated tests for this system
+In Unity ; open up the Test Runner Window (Window > General > Test Runner). In the Window , 
+make the PlayMode button get pressed in. Then it "Run all". 
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
+`
+Player Name tests:  
+  - Ensure the name is trimmed: Extra spaces at the end could destroy alignment in the score bar
+  - Ensure player name is set and shown on screen: Players need to see their scores with their names
+  - Ensure players can't be nameless: A name needs to be shown in the credits in order to look correct
+  - Ensure the default player name isn't null:  A name needs to be shown in the credits in order to look correct
+`
 
 `
-Give an example
+Serialization tests: 
+  - Ensure only the top ten scores at most are written to a file: Data will exponentionally grow if scores kept 
+  getting added and added to high score list 
 `
+
+`
+Display tests: 
+  - Ensure that the high score text is formatted correctly at start: The player needs to see text on one line at start
+  - Ensure that the score text is formatted correctly at start: The player needs to see text on one line at start
+  - Ensure that the high score text is formatted correctly with a huge score during play:
+     The player needs to see text on one line for it to look right
+  - Ensure that the score text is formatted correctly at with a huge score during play: 
+      The player needs to see text on one line for it to look right
+  - Ensure that the game over text is deactivated during play: If the game over text is accidentally left active during the 
+    hierarchy ; the player won't see it when the game is boot up. 
+  - Ensure that the game over text is activated at game over: If the game over text doesn't appear; the player
+      will be very confused
+`
+
 
 ### And coding style tests
 
@@ -69,7 +93,7 @@ Add additional notes about how to deploy this on a live system
 
 * **Unity Technologies** - *Initial work* - [Unity Technologies](https://learn.unity.com/tutorial/submission-data-persistence-in-a-new-repo?uv=2020.3&labelRequired=true&pathwayId=5f7e17e1edbc2a5ec21a20af&missionId=5f751af7edbc2a0022cdbbb6#)
 
-
+* **FFonts** - *Usage of the CCO 8bit font* - [Font link](https://www.ffonts.net/8BIT-WONDER-Nominal.font.download)
 
 ## License
 

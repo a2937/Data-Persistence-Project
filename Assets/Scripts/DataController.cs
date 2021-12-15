@@ -24,6 +24,7 @@ public class DataController : MonoBehaviour
     LoadSaveData();
   }
 
+
   public void SetPlayerName(string name)
   {
     if ( string.IsNullOrWhiteSpace( name ) )
@@ -32,7 +33,7 @@ public class DataController : MonoBehaviour
     }
     else
     {
-      CurrentUser.UserName = name;
+      CurrentUser.UserName = name.Trim();
     }
   }
   public string SerializeHighScores(long score)
@@ -78,6 +79,14 @@ public class DataController : MonoBehaviour
   public string GetPlayerName()
   {
     return CurrentUser.UserName;
+  }
+
+  public void OnDestroy()
+  {
+    if ( Instance == this )
+    {
+      Instance = null;
+    }
   }
 
   public void LoadSaveData()
