@@ -77,9 +77,10 @@ based off of my research of the C# compiler's preferred options.
 [X] Top High Scores persists across sessions
 
 [X] Top High score displays the name
-## Deployment
 
-Add additional notes about how to deploy this on a live system
+[X] Background Music
+
+[X] Basic sound effects 
 
 ## Built With
 
@@ -95,6 +96,7 @@ Add additional notes about how to deploy this on a live system
 
 * **FFonts** - *Usage of the CCO 8bit font* - [Font link](https://www.ffonts.net/8BIT-WONDER-Nominal.font.download)
 
+* **OpenGameArt** - *Hosting the CCO music and sounds I used* - [Open Game Art](https://opengameart.org/)
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
@@ -102,3 +104,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Unity Staff for coming up with the tutorial for the project
+
+* Open Game Art for their CCO music and sound effects
