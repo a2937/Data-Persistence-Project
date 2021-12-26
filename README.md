@@ -3,7 +3,7 @@
 A completion of a Unity tutorial dealing with data persistence. The goal is to have scene data transfer 
 scene to scene; and have data saved after a session is ended. The minigame used to demonstrate this 
 is Arknoid (commonly known as BrickBreaker) in which you fire a ball at bricks and increase your
-score by breaking the blocks. When all the bricks are gone; the game ends. 
+score by breaking the blocks. When all the bricks are gone; the game ends. It is a live at [Unity Play](https://play.unity.com/mg/other/webgl-builds-124996).
 
 ## Getting Started
 
@@ -40,7 +40,7 @@ Player Name tests:
 
 `
 Serialization tests: 
-  - Ensure only the top ten scores at most are written to a file: Data will exponentionally grow if scores kept 
+  - Ensure only the top ten scores at most are written to a file: Data will exponentially grow if scores kept 
   getting added and added to high score list 
 `
 
@@ -68,7 +68,7 @@ based off of my research of the C# compiler's preferred options.
 
 [X] Main Menu with start button added
 
-[X] Quit Button on Main Mneu
+[X] Quit Button on Main Menu
 
 [X] Player's name persists across scenes
 
